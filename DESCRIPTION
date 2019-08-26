@@ -1,0 +1,55 @@
+Package: mltzostercode
+Title: Use of Machine Learning techniques for case-detection of
+    Varicella Zoster using routinely collected textual ambulatory records
+Version: 1.0
+Authors@R: 
+    c(person(given = "Corrado",
+             family = "Lanera",
+             role = c("aut", "cre"),
+             email = "corrado.lanera@unipd.it"),
+      person(given = "Paola",
+             family = "Berchialla",
+             role = "aut",
+             email = "paola.berchiall@unito.it"),
+      person(given = "Ileana",
+             family = "Baldi",
+             role = "aut",
+             email = "ileana.baldi@unipd.it"),
+      person(given = "Giulia",
+             family = "Lorenzoni",
+             role = "ctb",
+             email = "giulia.lorenzoni@unipd.it"),
+      person(given = "Lara",
+             family = "Tramontan",
+             role = "ctb",
+             email = "ltramontan@consorzioarsenal.it"),
+      person(given = "Antonio",
+             family = "Scamarcia",
+             role = "dtc",
+             email = "a.scamarcia@sosepe.com"),
+      person(given = "Luigi",
+             family = "Cantarutti",
+             role = "dtc",
+             email = "l.cantarutti@sosepe.com"),
+      person(given = "Carlo",
+             family = "Giaquinto",
+             role = c("dtc", "fnd"),
+             email = "carlo.giaquinto@unipd.it"),
+      person(given = "Dario",
+             family = "Gregori",
+             role = c("aut", "fnd"),
+             email = "dario.gregori@unipd.it"))
+Description: Collect the function and the code used for the
+    analyses reported in the paper "Use of Machine Learning techniques for
+    case-detection of Varicella Zoster using routinely collected textual
+    ambulatory records".
+License: GPL-3 + file LICENSE
+Imports: 
+    magrittr (>= 1.5)
+Suggests: 
+    spelling (>= 2.1)
+Encoding: UTF-8
+Language: en-US
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 6.1.1
