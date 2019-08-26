@@ -39,6 +39,10 @@ devtools::install_github("UBESP-DCTV/mltzostercode")
 
 The analyses for the paper are reported in `inst/analysis/analysis.R`.
 
+> NOTE: to be sure you have installed all the needed package used in
+        the script `inst/analysis/analysis.R` too, you can install 
+        the package with the option `dependencies = TRUE`.
+
 ## Code of Conduct
 Please note that the 'mltzostercode' project is released with a
 [Contributor Code of Conduct](.github/CODE_OF_CONDUCT.md). By
