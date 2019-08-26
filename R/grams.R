@@ -11,11 +11,11 @@
 #' @return (list) of character vectors containing the nGrammed documents
 #' @export
 #'
-ngram <- function (corpus, n_min = 1, n_max = 2, parallel  = FALSE) {
+ngram <- function(corpus, n_min = 1, n_max = 2, parallel  = FALSE) {
 
 	if (!is.list(corpus)) stop('corpus must be a list')
 	#
-	if (!parallel){
+	if (!parallel) {
 		purrr::map(
 			 corpus,
 			 function(x) RWeka::NGramTokenizer(
@@ -24,7 +24,7 @@ ngram <- function (corpus, n_min = 1, n_max = 2, parallel  = FALSE) {
              )
 		)
 	} else {
-	    if (!requireNamespace("parallel", quietly = TRUE)){
+	    if (!requireNamespace("parallel", quietly = TRUE)) {
 	        stop('`parallel` package required for the computation')
 	    }
 		cl <- parallel::makePSOCKcluster( parallel::detectCores() - 1)
@@ -55,7 +55,6 @@ ngram <- function (corpus, n_min = 1, n_max = 2, parallel  = FALSE) {
 #' a shortcuts for \code{ngram} using \code{n_min = n_max = 2}
 #'
 #' @rdname grams
-#' @return
 #' @export
 #'
 bigram  <- function(corpus, parallel = FALSE) {
@@ -68,9 +67,8 @@ bigram  <- function(corpus, parallel = FALSE) {
 #' a shortcuts for \code{ngram} using \code{n_min = n_max = 3}
 #'
 #' @rdname grams
-#' @return
 #' @export
 #'
 trigram <- function(corpus, parallel = FALSE) {
-    ngram(corpus = corpus, n_max = 3, n_max = 3, parallel = parallel)
+    ngram(corpus = corpus, n_min = 3, n_max = 3, parallel = parallel)
 }

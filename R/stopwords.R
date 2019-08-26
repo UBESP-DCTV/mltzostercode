@@ -1,32 +1,27 @@
 #' Remove stopwords
 #'
-#' @param corpus (list) of documents, or a list of character vectors each one
-#'  reporting tokens from a document
-#' @param language (chr) optional language to pass to package \code{tm} if the
-#'  parameter \code{stopwords} is left as default for determination of the
-#'  stopwords (default is 'italian')
-#' @param stopwords (chr) optional vectors of stopwords, by default the vector
-#'  is provided by the \code{tm} package for the language chosed by
-#'  \code{language} (default is italian)
-#' @param stem (lgl) if \code{TRUE} perform the stemming (using the package
-#'  \code{SnowballC}) of the stopwords before to remove them, default is
-#'  \code{FALSE}
-#' @param parallel (lgl) if \code{TRUE} perform the computation in parallel
-#'  using the \code{parallel} package functionality
+#' @param corpus (list) of documents, or a list of character vectors
+#'   each one reporting tokens from a document
+#' @param language (chr) optional language to pass to package \code{tm}
+#'   if the parameter \code{stopwords} is left as default for
+#'   determination of the stopwords (default is 'italian')
+#' @param stopwords (chr) optional vectors of stopwords, by default the
+#'   vector is provided by the \code{tm} package for the language
+#'   choosed by \code{language} (default is italian)
+#' @param stem (lgl) if \code{TRUE} perform the stemming (using the
+#'   package \code{SnowballC}) of the stopwords before to remove them,
+#'   default is \code{FALSE}
+#' @param parallel (lgl) if \code{TRUE} perform the computation in
+#'   parallel using the \code{parallel} package functionality
 #'
 #' @return (list) of documents pruned by the stopwords
 #' @export
 #'
 #' @name stopwords
-#'
-#' @examples
 stopw <- function(corpus, language = 'italian', stopwords = NULL, stem = FALSE,
                   parallel = FALSE) {
 #
     if (is.null(stopwords)) {
-        if(!requireNamespace("tm", quietly = TRUE)) {
-            stop('package `tm` is required if stopwords are not provided')
-        }
         stopwords <- tm::stopwords(language)
     }
 
@@ -38,7 +33,7 @@ stopw <- function(corpus, language = 'italian', stopwords = NULL, stem = FALSE,
 
     ## We split the function according to the tokenized option
     #
-    if(sum(sapply(corpus, function(x) sum(length(x)))) == length(corpus)){
+    if (sum(sapply(corpus, function(x) sum(length(x)))) == length(corpus)) {
         ## the corpus is not tokenized so we remove the stopwords "inside"
         ## the content of the corpus.
         #
@@ -56,7 +51,7 @@ stopw <- function(corpus, language = 'italian', stopwords = NULL, stem = FALSE,
             )
         ))
         #
-        if (!parallel){
+        if (!parallel) {
             purrr::map(corpus, ~ stringr::str_replace_all(., del_stop))
         } else {
             cl <- parallel::makePSOCKcluster(parallel::detectCores() - 1)
@@ -81,7 +76,7 @@ stopw <- function(corpus, language = 'italian', stopwords = NULL, stem = FALSE,
         ## retain only those token for which no stopword has been detected
         ## (i.e. there is _not_ _any_ stopwords)
         #
-        if (!parallel){
+        if (!parallel) {
             purrr::map(corpus,
 
                 ## select only those token for which there aren't any
@@ -117,7 +112,7 @@ stopw <- function(corpus, language = 'italian', stopwords = NULL, stem = FALSE,
                 }
             )
             #
-            stopCluster(cl)
+            parallel::stopCluster(cl)
             return(RES)
         }
     }

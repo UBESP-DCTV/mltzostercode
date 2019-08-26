@@ -1,25 +1,25 @@
-
-#' Create a dtm from a corpus (tf weights)
+#' Create a dtm from a corpus (TF weights)
 #'
-#' \code{atom_dtm} take a corpus (listo of documents), tokenized or not, and
-#' create the Document-Term Matrx (DTM) stored as sparse, i.e. using the
-#' algrithm of the simple triplet matrix (three indeces i, j, v, in which
-#' the indeces i, j rappresent the row and the column position of an entry
-#' and v rapresent its content). Moreover, for compatibility reasons with
-#' some machine learning algorithm which use another convention for sparsity,
-#' the indeces are ordered and with priority i, j too.
+#' \code{atom_dtm} take a corpus (list of documents), tokenized or not,
+#' and create the Document-Term Matrix (DTM) stored as sparse, i.e.
+#' using the algorithm of the simple triplet matrix (three indices i, j,
+#' v, in which the indices i, j represent the row and the column
+#' position of an entry and v represents its content). Moreover, for
+#' compatibility reasons with some machine learning algorithm which use
+#' another convention for sparsity, the indices are ordered and with
+#' priority i, j too.
 #'
-#' @param corpus (list) of documents, or a list of character vectors each one
-#'  reporting tokens from a document
+#' @param corpus (list) of documents, or a list of character vectors
+#'   each one reporting tokens from a document
 #'
 #' @param step (num) integer value (default is 500L) used to broken the
-#' procedure in parts of at maximum \code{step} documents each one. This is to
-#' help to don't overflow the RAM.
+#'   procedure in parts of at maximum \code{step} documents each one.
+#'   This is to help to don't overflow the RAM.
 #'
-#' @return am object of class simple_triplet_matrix (from package \code{slam})
-#' rappresenting a document'term matrix in which each row is a document, each
-#' columns is a term (or token) and the content is the simple frequencies of
-#' that terms in that document
+#' @return am object of class simple_triplet_matrix (from package
+#'   \code{slam}) representing a document-term matrix in which each row
+#'   is a document, each columns is a term (or token) and the content is
+#'   the simple frequencies of that terms in that document
 #'
 #' @export
 atom_dtm <- function(
@@ -107,7 +107,7 @@ atom_dtm <- function(
             )
         )
 
-        if(i==n.step) message('progress: 100%')
+        if (i == n.step) message('progress: 100%')
     } # END OF THE FOR CICLE
 
     ## fixes order to avoid issues with function
@@ -124,16 +124,6 @@ atom_dtm <- function(
     rownames(DT.triple) <- names(corpus)
     colnames(DT.triple) <- features                               # DTM !!!!
 #
-    return(DT.triple)
+    DT.triple
 #
-}#==========================================================================
-#
-##==========================================================================
-#
-## README  :
-#
-## NOTE    :
-#
-## EXAMPLES:
-#
-############################################################################
+}

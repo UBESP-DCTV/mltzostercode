@@ -6,10 +6,10 @@
 #'  reporting tokens from a document
 #' @param numbers (lgl) if TRUE also numbers are removed (default FALSE)
 #'
-#' @return
+#' @return a (list) of document with non words removed
 #' @export
 #'
-nonword <- function (corpus, numbers = FALSE) {
+nonword <- function(corpus, numbers = FALSE) {
 
     if (!is.list(corpus)) stop('corpus must be a list')
 

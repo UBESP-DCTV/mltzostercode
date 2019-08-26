@@ -5,6 +5,10 @@
 
 <!-- badges: start -->
 
+[![AppVeyor build
+status](https://ci.appveyor.com/api/projects/status/github/UBESP-DCTV/mltzostercode?branch=master&svg=true)](https://ci.appveyor.com/project/UBESP-DCTV/mltzostercode)
+[![Travis build
+status](https://travis-ci.org/UBESP-DCTV/mltzostercode.svg?branch=master)](https://travis-ci.org/UBESP-DCTV/mltzostercode)
 <!-- badges: end -->
 
 The goal of mltzostercode is to Collect the function and the code used
@@ -22,6 +26,10 @@ install the development version of the packagefrom
 # install.packages("devtools")
 devtools::install_github("UBESP-DCTV/mltzostercode")
 ```
+
+## Analyses
+
+The analyses for the paper are reported in `inst/analysis/analysis.R`.
 
 ## Code of Conduct
 

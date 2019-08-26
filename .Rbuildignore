@@ -4,3 +4,7 @@
 ^\.github$
 ^\.github/ISSUE_TEMPLATE$
 ^LICENSE\.md$
+^appveyor\.yml$
+^\.travis\.yml$
+^codecov\.yml$
+^\.covrignore$

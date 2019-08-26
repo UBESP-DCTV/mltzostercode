@@ -8,10 +8,18 @@
 ci <- function(perf, alpha = .05) {
     p <- 1 - (alpha / 2)
     df <- length(perf) - 2
-    delta <- qt(p = p, df = df)
+    delta <- stats::qt(p = p, df = df)
 
-    s <- transpose(perf[-length(perf)]) %>% map(~ unlist(.)) %>% map_dbl(~ sd(.))
-    res <- perf$CV + ((s %*% t(c(-1, 1)) * delta) / sqrt(length(perf) - 1))
+    s <- purrr::transpose(perf[-length(perf)]) %>%
+        purrr::map(~ unlist(.)) %>%
+        purrr::map_dbl(~ sd(.))
+
+    res <- perf$CV +
+        (
+            (s %*% t(c(-1, 1)) * delta) /
+            sqrt(length(perf) - 1)
+        )
+
     colnames(res) <- c('ci95inf', 'ci95sup')
     data.frame(res, cv_avr = perf[['CV']])
 }

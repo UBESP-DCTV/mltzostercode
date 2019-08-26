@@ -1,26 +1,13 @@
-##############################################################################
-#
-## This function use and require <XXXXXXXXX> package
-#
-###############################################################################
-#
-##=============================================================================
-#
+#' csr from stm
+#'
+#' @param stm simple triplet matrix (with row and columns name as
+#'     document and terms matrix)
+#'
+#' @return a matrix.csr
+#' @export
 csr_dtm <- function(
-    stm ## simple triplet matrix (with row and colums name
-        ## as document and terms matrix)
+    stm ##
 ){
-#
-##-----------------------------------------------------------------------------
-#
-## func_name(variable) ....
-#
-## INPUT :
-#
-## OUTPUT:
-#
-##=============================================================================
-#
     ## Create a DocumentTermMatrix in a fast way (and with pryr::refs == 1)
     #
     names(stm[['dimnames']]) <- c('Docs', 'Terms')
@@ -29,7 +16,7 @@ csr_dtm <- function(
                                     'simple_triplet_matrix'
                                  )
     attr(stm, 'weighting')   <- c('term frequency', 'tf')
-    
+
     ## csr content (it is mandatory that result is integer vector!)
     #
     stm[['v']] <- as.double(stm$v)
@@ -40,23 +27,13 @@ csr_dtm <- function(
                         FUN.VALUE = integer(1)
                     ))
                   )
-    
+
     ## Create csr
     #
-    new('matrix.csr',
+    methods::new('matrix.csr',
         ra        = stm$v,
         ja        = stm$j,
         ia        = ia,
         dimension = c(stm$nrow, stm$ncol)
     )
 }
-#
-##=============================================================================
-#
-## README  :
-#
-## NOTE    :
-#
-## EXAMPLES:
-#
-###############################################################################

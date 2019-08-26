@@ -6,7 +6,7 @@
 #' with zeros the terms which are not present. Final order of token are the
 #' same as in \code{target}
 #'
-#' This is usefull in Machine Learning, i.e. to use a machine \code{reference}-trained
+#' This is useful in Machine Learning, i.e. to use a machine \code{reference}-trained
 #' on the \code{target} dtm.
 #'
 #' @param target (\code{\link[tm]{DocumentTermMatrix}}) This is the dtm considered
@@ -19,17 +19,6 @@
 #' @return (\code{\link[tm]{DocumentTermMatrix}}) with weights for the terms in
 #'         \code{reference} and documents in \code{target} DTMs.
 #' @export
-#'
-#' @seealso \link{tm}, \link{slam}
-#' @examples
-#' library(tm)
-#' data(acq)
-#' data(crude)
-#'
-#' reference <- DocumentTermMatrix(acq)
-#' to_adjust <- DocumentTermMatrix(crude)
-#'
-#' dtm_lfilter(reference, to_adjust)
 dtm_lfilter <- function(target, reference){
 
   if (!inherits(reference, 'DocumentTermMatrix')) {

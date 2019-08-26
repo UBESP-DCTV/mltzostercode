@@ -6,19 +6,15 @@
 #' document.
 #' a
 #'
-#' @param dtm A \code{\link[tm]{DocumentTermFrequencies}} filled with the simple
+#' @param dtm A \code{\link[tm]{DocumentTermMatrix}} filled with the simple
 #'            term-frequencies weights
 #' @param force (lgl) if \code{TRUE} (default is \code{FALSE}) the function
 #'              works also for \code{\link[slam]{simple_triplet_matrix}}
 #'              which are not \code{\link[tm]{DocumentTermMatrix}}
 #'
-#' @return A \code{\link[tm]{DocumentTermFrequencies}} for wich the sum of the
+#' @return A \code{\link[tm]{DocumentTermMatrix}} for which the sum of the
 #'         frequencies of each document is 1 (or 0 if it is an empty one)
 #' @export
-#'
-#' @examples
-#' data(liu_dtm)
-#' tf_normalizator(liu_dtm)
 tf_normalizator <- function(dtm, force = FALSE) {
 
   if (!force) {
@@ -54,7 +50,7 @@ tf_normalizator <- function(dtm, force = FALSE) {
 #' The aims of this function is to compute the Inverse document-frequencies
 #' possibly using different functions. The standard one is the \code{log2}
 #'
-#' @param dtm A \code{\link[tm]{DocumentTermFrequencies}} filled with the simple
+#' @param dtm A \code{\link[tm]{DocumentTermMatrix}} filled with the simple
 #'            term-frequencies weights
 #'
 #' @param fun The weighting function for the ratio of document-frequencies
@@ -67,12 +63,6 @@ tf_normalizator <- function(dtm, force = FALSE) {
 #'
 #' @return A numerical vector representing the inverse document-frequencies
 #' @export
-#'
-#' @examples
-#' data(liu_dtm)
-#' idf(liu_dtm)
-#' idf(liu_dtm, adjust = FALSE)
-#' idf(liu_dtm, fun = log)
 idf <- function(dtm, fun = log2, adjust = TRUE, force = FALSE) {
 
   if (!force) {
@@ -96,7 +86,7 @@ idf <- function(dtm, fun = log2, adjust = TRUE, force = FALSE) {
   ts <- slam::col_sums(dtm != 0) %>%
     as.integer
 
-  if (adjust){
+  if (adjust) {
     ts <- ts + 1
   }
 

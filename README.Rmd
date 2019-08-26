@@ -15,8 +15,8 @@ knitr::opts_chunk$set(
 # mltzostercode
 
 <!-- badges: start -->
-[![Lifecycle: maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
-[![CRAN status](https://www.r-pkg.org/badges/version/mltzostercode)](https://CRAN.R-project.org/package=mltzostercode)
+[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/UBESP-DCTV/mltzostercode?branch=master&svg=true)](https://ci.appveyor.com/project/UBESP-DCTV/mltzostercode)
+[![Travis build status](https://travis-ci.org/UBESP-DCTV/mltzostercode.svg?branch=master)](https://travis-ci.org/UBESP-DCTV/mltzostercode)
 <!-- badges: end -->
 
 The goal of mltzostercode is to Collect the function and the code used
@@ -30,10 +30,14 @@ To access to all the function provided and their documentation, you can
 install the development version of the packagefrom
 [GitHub](https://github.com/) with:
 
-``` r
+```{r, eval = FALSE}
 # install.packages("devtools")
 devtools::install_github("UBESP-DCTV/mltzostercode")
 ```
+
+## Analyses
+
+The analyses for the paper are reported in `inst/analysis/analysis.R`.
 
 ## Code of Conduct
 Please note that the 'mltzostercode' project is released with a

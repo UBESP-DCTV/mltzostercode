@@ -7,8 +7,6 @@
 #'
 #' @return a corpus (list)
 #' @export
-#'
-#' @examples
 white <- function(corpus){
 	if(!is.list(corpus)) stop('corpus must be a list')
 	#
