@@ -3,7 +3,7 @@ memory.size(2^17)
 options(java.parameters = "-Xmx80g")
 
 # Packages -------------------------------------------------------------
-# Tools
+## Tools
 library(tidyverse)
 library(SparseM)
 library(slam)
@@ -11,16 +11,21 @@ library(here)
 library(ROCR)
 library(Matrix)
 
-# Text management
+## Text management
 library(RWeka)
 library(SnowballC)
 library(tm)
 
-# Machine Learning
+## Machine Learning
 library(caret)
 library(caTools)
 library(glmnet)
 library(maxent)
+
+## Project package
+# install.packages("devtools")
+# devtools::install_github("UBESP-DCTV/mltzostercode")
+library(mltzostercode)
 
 
 # Utilities ------------------------------------------------------------
