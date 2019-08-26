@@ -1,7 +1,7 @@
 Package: mltzostercode
 Title: Use of Machine Learning techniques for case-detection of
     Varicella Zoster using routinely collected textual ambulatory records
-Version: 1.0
+Version: 1.2
 Authors@R: 
     c(person(given = "Corrado",
              family = "Lanera",
@@ -47,7 +47,7 @@ License: GPL-3 + file LICENSE
 URL: https://github.com/UBESP-DCTV/mltzostercode
 BugReports: https://github.com/UBESP-DCTV/mltzostercode/issues
 Depends: 
-    R (>= 3.2)
+    R (>= 3.4)
 Imports: 
     magrittr (>= 1.5),
     methods,
