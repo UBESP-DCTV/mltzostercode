@@ -35,6 +35,13 @@ The analyses for the paper are reported in `inst/analysis/analysis.R`.
 > script `inst/analysis/analysis.R` too, you can install the package
 > with the option `dependencies = TRUE`.
 
+> NOTE 2: To run the script `inst/analysis/analysis.R`, in its part
+> involving the *Maximum Entropy* analyses, you need the **maxent**
+> package, which has been removed from the CRAN. Hence, if you want to
+> run `inst/analysis/analysis.R`, you need to build **maxent** from
+> source by your own. You can find the archived versions
+> [here](https://cran.r-project.org/src/contrib/Archive/maxent/).
+
 ## Code of Conduct
 
 Please note that the ‘mltzostercode’ project is released with a
